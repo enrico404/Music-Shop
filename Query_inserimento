@@ -101,10 +101,21 @@ INSERT INTO FILIALE VALUES('11','0','059837493','Sole','23424','Palermo','33','P
 INSERT INTO FILIALE VALUES('12','0','059281293','Calo','75938','Reggio Emilia','56','Reggio Emilia','3');
 
 
+INSERT INTO DIRIGE VALUES('10','ABC');
+INSERT INTO DIRIGE VALUES('11','EFG');
+INSERT INTO DIRIGE VALUES('12','HIJ');
+
+INSERT INTO DIPENDENTE VALUES('QWE','Paolo','Tarozzi','25','123456788','croce','41019','Soliera','2','Modena','10');
+INSERT INTO DIPENDENTE VALUES('RTY','Enrico','Sedoni','35','384293920','Croce lama','41019','Soliera','257','Modena','10');
+INSERT INTO DIPENDENTE VALUES('UUI','Roberto','Pulizo','20','3456086234','Reti','23454','Roma','32','Roma','11');
+INSERT INTO DIPENDENTE VALUES('IOP','Giulio','Sternieri','25','098765432','Viazzolo','41019','Soliera','33','Modena','11');
+INSERT INTO DIPENDENTE VALUES('ASD','Isabella','Marchi','33','3928304933','Luigi galvani','75938','Correggio','12','Reggio Emilia','12');
+INSERT INTO DIPENDENTE VALUES('FGH','Elisa','Carducci','31','3928342333','Paolo Sarti','75938','Correggio','32','Reggio Emilia','12');
 
 
-
-
+INSERT INTO RIFORNIMENTO VALUES('10','');
+INSERT INTO RIFORNIMENTO VALUES('','');
+INSERT INTO RIFORNIMENTO VALUES('','');
 
 
 

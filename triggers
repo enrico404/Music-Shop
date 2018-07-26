@@ -1,0 +1,98 @@
+1) aggiornamento del dato derivato "costo personale" dopo inserimento in tabella dirige 
+
+CREATE OR REPLACE FUNCTION aggiorna_costo_personale() RETURNS trigger AS $$
+		DECLARE
+		costo DECIMAL(10,3);
+		BEGIN 
+			costo = (SELECT costo_orario from DIRIGENTE WHERE cf = NEW.cf_dir);
+			UPDATE FILIALE
+				SET costo_personale = costo_personale + costo
+				WHERE cod_f = NEW.cod_f;
+		 RETURN NEW;
+		END;
+     $$ LANGUAGE 'plpgsql';
+
+CREATE TRIGGER COSTO_PERSONALE
+	AFTER INSERT ON DIRIGE
+	FOR EACH ROW EXECUTE PROCEDURE aggiorna_costo_personale();
+
+2) aggiornamento del dato derivato "costo personale" dopo inserimento in tabella dipendente
+
+CREATE OR REPLACE FUNCTION aggiorna_costo_personale2() RETURNS trigger AS $$
+		
+		BEGIN 
+			
+			UPDATE FILIALE
+				SET costo_personale = costo_personale + NEW.costo_orario
+				WHERE cod_f = NEW.cod_f;
+		 RETURN NEW;
+		END;
+     $$ LANGUAGE 'plpgsql';
+
+CREATE TRIGGER COSTO_PERSONALE2
+	AFTER INSERT ON DIPENDENTE
+	FOR EACH ROW EXECUTE PROCEDURE aggiorna_costo_personale2();
+
+
+3) riduzione costo personale alla rimozione di un dipendente
+
+
+CREATE OR REPLACE FUNCTION riduci_costo_personale2() RETURNS trigger AS $$
+		
+		BEGIN 
+			
+			UPDATE FILIALE
+				SET costo_personale = costo_personale - OLD.costo_orario
+				WHERE cod_f = OLD.cod_f;
+		 RETURN OLD;
+		END;
+     $$ LANGUAGE 'plpgsql';
+
+CREATE TRIGGER RIDUCI_COSTO_PERSONALE2
+	AFTER DELETE ON DIPENDENTE
+	FOR EACH ROW EXECUTE PROCEDURE riduci_costo_personale2();
+
+
+4) riduzione costo personale alla rimozione di un dirigente
+
+
+
+CREATE OR REPLACE FUNCTION riduci_costo_personale() RETURNS trigger AS $$
+		DECLARE
+		costo DECIMAL(10,3);
+		BEGIN 
+			costo = (SELECT costo_orario from DIRIGENTE WHERE cf = OLD.cf_dir);
+			UPDATE FILIALE
+				SET costo_personale = costo_personale - costo
+				WHERE cod_f = OLD.cod_f;
+		 RETURN OLD;
+		END;
+     $$ LANGUAGE 'plpgsql';
+
+CREATE TRIGGER RIDUCI_COSTO_PERSONALE
+	AFTER DELETE ON DIRIGE
+	FOR EACH ROW EXECUTE PROCEDURE riduci_costo_personale();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
