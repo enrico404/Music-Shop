@@ -1,4 +1,4 @@
-1) aggiornamento del dato derivato "costo personale" dopo inserimento in tabella dirige 
+
 
 CREATE OR REPLACE FUNCTION aggiorna_costo_personale() RETURNS trigger AS $$
 		DECLARE
@@ -16,7 +16,7 @@ CREATE TRIGGER COSTO_PERSONALE
 	AFTER INSERT ON DIRIGE
 	FOR EACH ROW EXECUTE PROCEDURE aggiorna_costo_personale();
 
-2) aggiornamento del dato derivato "costo personale" dopo inserimento in tabella dipendente
+
 
 CREATE OR REPLACE FUNCTION aggiorna_costo_personale2() RETURNS trigger AS $$
 		
@@ -34,7 +34,7 @@ CREATE TRIGGER COSTO_PERSONALE2
 	FOR EACH ROW EXECUTE PROCEDURE aggiorna_costo_personale2();
 
 
-3) riduzione costo personale alla rimozione di un dipendente
+
 
 
 CREATE OR REPLACE FUNCTION riduci_costo_personale2() RETURNS trigger AS $$
@@ -53,7 +53,7 @@ CREATE TRIGGER RIDUCI_COSTO_PERSONALE2
 	FOR EACH ROW EXECUTE PROCEDURE riduci_costo_personale2();
 
 
-4) riduzione costo personale alla rimozione di un dirigente
+
 
 
 
@@ -73,6 +73,25 @@ CREATE TRIGGER RIDUCI_COSTO_PERSONALE
 	AFTER DELETE ON DIRIGE
 	FOR EACH ROW EXECUTE PROCEDURE riduci_costo_personale();
 	
+	
+
+
+
+
+	CREATE OR REPLACE FUNCTION aggiorna_spesa_totale_p() RETURNS trigger AS $$
+		
+		
+		BEGIN 
+			UPDATE CLIENTE 
+				SET spesa_totale = spesa_totale + NEW.costo
+				WHERE cf = NEW.cf;
+		 RETURN NEW;
+		END;
+     $$ LANGUAGE 'plpgsql';
+
+CREATE TRIGGER AGGIORNA_SPESA_TOTALE_P
+	AFTER INSERT ON PRESTITO
+	FOR EACH ROW EXECUTE PROCEDURE aggiorna_spesa_totale_p();
 
 
 
@@ -80,6 +99,121 @@ CREATE TRIGGER RIDUCI_COSTO_PERSONALE
 
 
 
+CREATE OR REPLACE FUNCTION aggiorna_spesa_totale_acq() RETURNS trigger AS $$
+		
+
+		BEGIN 
+			
+		
+			UPDATE CLIENTE 
+				SET spesa_totale = spesa_totale + NEW.importo_totale
+				WHERE cf = NEW.cf;
+		 RETURN NEW;
+		END;
+     $$ LANGUAGE 'plpgsql';
+
+CREATE TRIGGER AGGIORNA_SPESA_TOTALE_ACQ
+	AFTER INSERT ON CARRELLO
+	FOR EACH ROW EXECUTE PROCEDURE aggiorna_spesa_totale_acq();
+
+
+
+
+
+CREATE OR REPLACE FUNCTION riduce_quantita_cd_pr() RETURNS trigger AS $$
+		
+
+		BEGIN 
+			
+		
+			UPDATE ESPOSIZIONE 
+				SET quantita = quantita - 1
+				WHERE cod_f = NEW.cod_f and  nome_cd = NEW.nome_cd 
+					     and cod_band = NEW.cod_band;
+		 RETURN NEW;
+		END;
+     $$ LANGUAGE 'plpgsql';
+
+CREATE TRIGGER RIDUCE_QT_CD_PR
+	AFTER INSERT ON PRESTITO
+	FOR EACH ROW EXECUTE PROCEDURE riduce_quantita_cd_pr();
+
+
+
+
+
+CREATE OR REPLACE FUNCTION riduce_quantita_cd_acq() RETURNS trigger AS $$
+		DECLARE
+			codf INTEGER;
+			
+
+		BEGIN 
+		
+			
+			
+			codf = (select distinct cod_f 
+				     from fa_parte f, carrello c 
+				     where f.num = c.num and f.cf = c.cf
+				     
+				     );
+			
+				     
+			UPDATE ESPOSIZIONE 
+				SET quantita = quantita - NEW.qta_copie
+				WHERE cod_f = codf and  nome_cd = NEW.nome_cd 
+					     and cod_band = NEW.cod_band
+		 RETURN NEW;
+		END;
+     $$ LANGUAGE 'plpgsql';
+
+CREATE TRIGGER RIDUCE_QT_CD_ACQ
+	AFTER INSERT ON FA_PARTE
+	FOR EACH ROW EXECUTE PROCEDURE riduce_quantita_cd_acq();
+	
+	
+
+
+CREATE OR REPLACE FUNCTION aumenta_importo_totale() RETURNS trigger AS $$
+		DECLARE
+			prezzo INTEGER;
+			
+
+		BEGIN 
+		
+			
+			
+			prezzo = (select prezzo_cad 
+					from cd_musicale
+					where nome_cd = NEW.nome_cd and cod_band = NEW.cod_band)
+			
+				     
+			UPDATE CARRELLO 
+				SET importo_totale = importo_totale + prezzo
+				WHERE num = NEW.num and cf = NEW.cf;
+		 RETURN NEW;
+		END;
+     $$ LANGUAGE 'plpgsql';
+
+CREATE TRIGGER AUMENTA_IMPORTO_TOTALE
+	AFTER INSERT ON FA_PARTE
+	FOR EACH ROW EXECUTE PROCEDURE  aumenta_importo_totale() ;
+
+
+
+
+
+
+1) aggiornamento del dato derivato "costo personale" dopo inserimento in tabella dirige 
+2) aggiornamento del dato derivato "costo personale" dopo inserimento in tabella dipendente
+3) riduzione costo personale alla rimozione di un dipendente
+4) riduzione costo personale alla rimozione di un dirigente
+5) trigger che aggiorna la spesa totale del cliente dopo prestito
+6)trigger che aggiorna la spesa totale del cliente dopo acquisto
+
+7) trigger diminuisce quantita dopo prestito di cd
+8) trigger diminuisce quantita dopo inserimento del cd nel carrello
+ e verificare disponibilità prima di inserire prodotto nel carrello(non serve perchè quantia vincolata dal check)
+ 9) trigger che aumenta importo totale carrello
 
 
 
