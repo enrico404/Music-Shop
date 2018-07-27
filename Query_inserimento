@@ -1,3 +1,4 @@
+
 INSERT INTO CASA_DISCOGRAFICA VALUES('Bertelsmann Music Group', '1987');
 INSERT INTO CASA_DISCOGRAFICA VALUES('EMI','1931');
 INSERT INTO CASA_DISCOGRAFICA VALUES('Sony Music','1991');
@@ -31,29 +32,29 @@ INSERT INTO STUDIO_DI_REGISTRAZIONE VALUES('Lake studio','Mulo','41019','Campoga
 
 
 
-INSERT INTO CD_MUSICALE VALUES('La voce del padrone','234','Lemon studio','12','7','01:00:00','6','234','Soliera');
-INSERT INTO CD_MUSICALE VALUES('Una donna per amico','234','Lemon studio','11','8','01:00:00','6','234','Soliera');
-INSERT INTO CD_MUSICALE VALUES('Ovunque proteggi ','4254','Lemon studio','11','8','01:00:00','7','435','Soliera');
-INSERT INTO CD_MUSICALE VALUES('I buoni e i cattivi','4254','Lemon studio','3','9','01:20:00','7','555','Soliera');
-INSERT INTO CD_MUSICALE VALUES('WoW','12','Lemon studio','12','20','00:40:00','7','444','Soliera');
-INSERT INTO CD_MUSICALE VALUES('A sangue freddo','12','Donkey','32','12','01:00:00','7','324','Modena');
-INSERT INTO CD_MUSICALE VALUES('Dreamland','53','Donkey','12','5','00:40:00','8','643','Modena');
-INSERT INTO CD_MUSICALE VALUES('A Race with the Devil','53','Donkey','32','5','00:40:00','9','325','Modena');
-INSERT INTO CD_MUSICALE VALUES('Carboni','863','Donkey','5','6','00:45:00','9','545','Modena');
-INSERT INTO CD_MUSICALE VALUES('Darwin!','863','Rock studio','6','8','00:45:00','9','342','Limidi');
-INSERT INTO CD_MUSICALE VALUES('Pompa','48','Rock studio','34','10','00:45:00','9','355','Limidi');
-INSERT INTO CD_MUSICALE VALUES('Il tuffatore','48','Rock studio','65','11','00:47:00','7','354','Limidi');
-INSERT INTO CD_MUSICALE VALUES('Reset','3','Rock studio','11','12','00:47:00','8','666','Limidi');
-INSERT INTO CD_MUSICALE VALUES('Latin Lover','3','Rock studio','32','12','00:47:00','8','454','Limidi');
-INSERT INTO CD_MUSICALE VALUES('Il vile','93','Ross','43','13','00:47:00','7','234','Carpi');
-INSERT INTO CD_MUSICALE VALUES('Kinotto','93','Ross','22','15','00:48:00','7','565','Carpi');
-INSERT INTO CD_MUSICALE VALUES('Non è per sempre','354','Veritas','23','12','01:47:00','7','575','Agrigento');
-INSERT INTO CD_MUSICALE VALUES('Rockmantico','354','Veritas','12','6','00:43:00','7','345','Agrigento');
-INSERT INTO CD_MUSICALE VALUES('Ossigeno','111','Riverdale studio','4','5','00:40:00','8','345','Salerno');
-INSERT INTO CD_MUSICALE VALUES('Kanaglia','232','Riverdale studio','3','6','00:57:00','8','123','Salerno');
-INSERT INTO CD_MUSICALE VALUES('Fatti Sentire','222','Lake studio','23','6','00:47:00','8','765','Campogalliano');
-INSERT INTO CD_MUSICALE VALUES('Peter Pan','331','Lake studio','23','7','00:27:00','6','1111','Campogalliano');
-INSERT INTO CD_MUSICALE VALUES('Everything Is Love','89','Lake studio','1','8','00:47:00','6','455','Campogalliano');
+INSERT INTO CD_MUSICALE VALUES('La voce del padrone','234','Lemon studio','7','01:00:00','6','234','Soliera');
+INSERT INTO CD_MUSICALE VALUES('Una donna per amico','234','Lemon studio','8','01:00:00','6','234','Soliera');
+INSERT INTO CD_MUSICALE VALUES('Ovunque proteggi ','4254','Lemon studio','8','01:00:00','7','435','Soliera');
+INSERT INTO CD_MUSICALE VALUES('I buoni e i cattivi','4254','Lemon studio','9','01:20:00','7','555','Soliera');
+INSERT INTO CD_MUSICALE VALUES('WoW','12','Lemon studio','20','00:40:00','7','444','Soliera');
+INSERT INTO CD_MUSICALE VALUES('A sangue freddo','12','Donkey','12','01:00:00','7','324','Modena');
+INSERT INTO CD_MUSICALE VALUES('Dreamland','53','Donkey','5','00:40:00','8','643','Modena');
+INSERT INTO CD_MUSICALE VALUES('A Race with the Devil','53','Donkey','5','00:40:00','9','325','Modena');
+INSERT INTO CD_MUSICALE VALUES('Carboni','863','Donkey','6','00:45:00','9','545','Modena');
+INSERT INTO CD_MUSICALE VALUES('Darwin!','863','Rock studio','8','00:45:00','9','342','Limidi');
+INSERT INTO CD_MUSICALE VALUES('Pompa','48','Rock studio','10','00:45:00','9','355','Limidi');
+INSERT INTO CD_MUSICALE VALUES('Il tuffatore','48','Rock studio','11','00:47:00','7','354','Limidi');
+INSERT INTO CD_MUSICALE VALUES('Reset','3','Rock studio','12','00:47:00','8','666','Limidi');
+INSERT INTO CD_MUSICALE VALUES('Latin Lover','3','Rock studio','12','00:47:00','8','454','Limidi');
+INSERT INTO CD_MUSICALE VALUES('Il vile','93','Ross','13','00:47:00','7','234','Carpi');
+INSERT INTO CD_MUSICALE VALUES('Kinotto','93','Ross','15','00:48:00','7','565','Carpi');
+INSERT INTO CD_MUSICALE VALUES('Non e per sempre','354','Veritas','12','01:47:00','7','575','Agrigento');
+INSERT INTO CD_MUSICALE VALUES('Rockmantico','354','Veritas','6','00:43:00','7','345','Agrigento');
+INSERT INTO CD_MUSICALE VALUES('Ossigeno','111','Riverdale studio','5','00:40:00','8','345','Salerno');
+INSERT INTO CD_MUSICALE VALUES('Kanaglia','232','Riverdale studio','6','00:57:00','8','123','Salerno');
+INSERT INTO CD_MUSICALE VALUES('Fatti Sentire','222','Lake studio','6','00:47:00','8','765','Campogalliano');
+INSERT INTO CD_MUSICALE VALUES('Peter Pan','331','Lake studio','7','00:27:00','6','1111','Campogalliano');
+INSERT INTO CD_MUSICALE VALUES('Everything Is Love','89','Lake studio','8','00:47:00','6','455','Campogalliano');
 
 INSERT INTO GENERE_MUSICALE VALUES('Hard Rock','1980');
 INSERT INTO GENERE_MUSICALE VALUES('Pop','2010');
@@ -78,7 +79,7 @@ INSERT INTO ADESIONE VALUES('Blues','3','Reset');
 INSERT INTO ADESIONE VALUES('Blues','3','Latin Lover');
 INSERT INTO ADESIONE VALUES('Blues','93','Il vile');
 INSERT INTO ADESIONE VALUES('Pop','93','Kinotto');
-INSERT INTO ADESIONE VALUES('Pop','354','Non è per sempre');
+INSERT INTO ADESIONE VALUES('Pop','354','Non e per sempre');
 INSERT INTO ADESIONE VALUES('Pop','354','Rockmantico');
 INSERT INTO ADESIONE VALUES('Pop','111','Ossigeno');
 INSERT INTO ADESIONE VALUES('Pop','232','Kanaglia');
@@ -89,16 +90,17 @@ INSERT INTO ADESIONE VALUES('Hard Rock','89','Everything Is Love');
 
 INSERT INTO MAGAZZINO VALUES('1','Cascata','41019','Modena','12','Modena');
 INSERT INTO MAGAZZINO VALUES('2','Roma','34244','Salerno','3','Salerno');
-INSERT INTO MAGAZZINO VALUES('3','Palladio','75938','Reggio Emilia','23','Reggio Emilia');
+INSERT INTO MAGAZZINO VALUES('3','Palladio','75938','Rolo','23','Palermo');
 
 INSERT INTO DIRIGENTE VALUES('ABC','Daniele','Bruco','70','3557349485','Roma','41019','Soliera','32','Modena','15');
 INSERT INTO DIRIGENTE VALUES('EFG','Matteo','Aguzzo','75','3348385839','Cielo','23542','Milano','43','Milano','18');
 INSERT INTO DIRIGENTE VALUES('HIJ','Luigi','Sedo','75','3285434567','Sole','32454','Arezzo','23','Arezzo','20');
 
 
+
 INSERT INTO FILIALE VALUES('10','0','059635483','Roma','41019','Modena','5','Modena','1');
 INSERT INTO FILIALE VALUES('11','0','059837493','Sole','23424','Palermo','33','Palermo','2');
-INSERT INTO FILIALE VALUES('12','0','059281293','Calo','75938','Reggio Emilia','56','Reggio Emilia','3');
+INSERT INTO FILIALE VALUES('12','0','059281293','Calo','75938','Rolo','56','Palermo','2');
 
 
 INSERT INTO DIRIGE VALUES('10','ABC');
@@ -113,9 +115,70 @@ INSERT INTO DIPENDENTE VALUES('ASD','Isabella','Marchi','33','3928304933','Luigi
 INSERT INTO DIPENDENTE VALUES('FGH','Elisa','Carducci','31','3928342333','Paolo Sarti','75938','Correggio','32','Reggio Emilia','12');
 
 
-INSERT INTO RIFORNIMENTO VALUES('10','');
-INSERT INTO RIFORNIMENTO VALUES('','');
-INSERT INTO RIFORNIMENTO VALUES('','');
+INSERT INTO RIFORNIMENTO VALUES('11','12');
+INSERT INTO RIFORNIMENTO VALUES('12','11');
+
+
+INSERT INTO EVENTO VALUES('Rock in modena','2010-02-05','Modena','10');
+INSERT INTO EVENTO VALUES('Blues insieme','2011-03-02','Modena','10');
+INSERT INTO EVENTO VALUES('Metal in palermo','2010-05-12','Palermo','11');
+INSERT INTO EVENTO VALUES('Music festival','2012-02-22','Salerno','12');
+INSERT INTO EVENTO VALUES('Fosh Fest','2013-01-12','Modena','10');
+
+
+
+
+INSERT INTO ESPOSIZIONE VALUES('La voce del padrone','234','10','15');
+INSERT INTO ESPOSIZIONE VALUES('Una donna per amico','234','10','15');
+INSERT INTO ESPOSIZIONE VALUES('Ovunque proteggi ','4254','10','15');
+INSERT INTO ESPOSIZIONE VALUES('I buoni e i cattivi','4254','10','15');
+INSERT INTO ESPOSIZIONE VALUES('WoW','12','10','15');
+INSERT INTO ESPOSIZIONE VALUES('Dreamland','53','10','15');
+INSERT INTO ESPOSIZIONE VALUES('Carboni','863','10','15');
+INSERT INTO ESPOSIZIONE VALUES('Darwin!','863','10','15');
+INSERT INTO ESPOSIZIONE VALUES('Reset','3','10','15');
+INSERT INTO ESPOSIZIONE VALUES('Il vile','93','10','15');
+INSERT INTO ESPOSIZIONE VALUES('Kinotto','93','10','15');
+INSERT INTO ESPOSIZIONE VALUES('Rockmantico','354','10','15');
+INSERT INTO ESPOSIZIONE VALUES('Peter Pan','331','10','15');
+
+
+INSERT INTO ESPOSIZIONE VALUES('La voce del padrone','234','11','15');
+INSERT INTO ESPOSIZIONE VALUES('Una donna per amico','234','11','15');
+INSERT INTO ESPOSIZIONE VALUES('Ovunque proteggi ','4254','11','15');
+INSERT INTO ESPOSIZIONE VALUES('WoW','12','11','15');
+INSERT INTO ESPOSIZIONE VALUES('Dreamland','53','11','15');
+INSERT INTO ESPOSIZIONE VALUES('Carboni','863','11','15');
+INSERT INTO ESPOSIZIONE VALUES('Darwin!','863','11','15');
+INSERT INTO ESPOSIZIONE VALUES('Reset','3','11','15');
+INSERT INTO ESPOSIZIONE VALUES('Kinotto','93','11','15');
+INSERT INTO ESPOSIZIONE VALUES('Rockmantico','354','11','15');
+INSERT INTO ESPOSIZIONE VALUES('Peter Pan','331','11','15');
+
+
+INSERT INTO ESPOSIZIONE VALUES('La voce del padrone','234','12','15');
+INSERT INTO ESPOSIZIONE VALUES('Una donna per amico','234','12','15');
+INSERT INTO ESPOSIZIONE VALUES('I buoni e i cattivi','4254','12','15');
+INSERT INTO ESPOSIZIONE VALUES('WoW','12','12','15');
+INSERT INTO ESPOSIZIONE VALUES('Dreamland','53','12','15');
+INSERT INTO ESPOSIZIONE VALUES('Carboni','863','12','15');
+INSERT INTO ESPOSIZIONE VALUES('Everything Is Love','89','12','15');
+INSERT INTO ESPOSIZIONE VALUES('Kinotto','93','12','15');
+INSERT INTO ESPOSIZIONE VALUES('Rockmantico','354','12','15');
+INSERT INTO ESPOSIZIONE VALUES('Peter Pan','331','12','15');
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

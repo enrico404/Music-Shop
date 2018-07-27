@@ -31,7 +31,6 @@ CREATE TABLE CD_MUSICALE(
 	nome VARCHAR(60) NOT NULL,
 	cod_band INTEGER NOT NULL,
 	nome_studio VARCHAR(60) NOT NULL,
-	disponibilita INTEGER,
 	prezzo_cad INTEGER NOT NULL, 
 	durata TIME NOT NULL,
 	num_brani INTEGER NOT NULL,
@@ -45,8 +44,7 @@ CREATE TABLE CD_MUSICALE(
 	
 	CHECK(prezzo_cad > 0),
 	CHECK(durata > '00:02:00' ),
-	CHECK(num_brani > 0),
-	CHECK(disponibilita >= 0)
+	CHECK(num_brani > 0)
 	
 
 );
@@ -195,12 +193,15 @@ CREATE TABLE ESPOSIZIONE(
 	nome_cd VARCHAR(60) NOT NULL, 
 	cod_band INTEGER NOT NULL, 
 	cod_f INTEGER NOT NULL,
+	quantita INTEGER,
 	PRIMARY KEY(nome_cd, cod_band, cod_f),
 	
 	FOREIGN KEY (nome_cd, cod_band) REFERENCES CD_MUSICALE(nome, cod_band)
 	ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY (cod_f) REFERENCES FILIALE(cod_f)
-	ON DELETE CASCADE ON UPDATE CASCADE
+	ON DELETE CASCADE ON UPDATE CASCADE,
+	
+	CHECK (quantita >= 0)
 	
 );
 
