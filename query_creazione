@@ -252,7 +252,7 @@ CREATE TABLE CARRELLO(
 	cf CHAR(16) NOT NULL, 
 	data date NOT NULL, 
 	importo_totale DECIMAL(10,3), 
-	cod_b INTEGER NOT NULL,
+	cod_b INTEGER,
 	cod_f INTEGER NOT NULL,
 	PRIMARY KEY(num, cf),
 	
@@ -263,7 +263,7 @@ CREATE TABLE CARRELLO(
 	FOREIGN KEY (cod_f) REFERENCES FILIALE(cod_f)
 	ON DELETE CASCADE ON UPDATE CASCADE,
 	
-	CHECK(importo_totale > 0),
+	CHECK(importo_totale >= 0),
 	CHECK(num > 0)
 
 );
