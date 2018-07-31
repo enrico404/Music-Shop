@@ -9,7 +9,7 @@ CREATE TABLE BAND(
 	cod_band INTEGER PRIMARY KEY,
 	nome VARCHAR(30) NOT NULL,
 	data_fondazione date NOT NULL,
-	nome_c VARCHAR(30) NOT NULL,
+	nome_c VARCHAR(30),
 	FOREIGN KEY (nome_c) REFERENCES CASA_DISCOGRAFICA(nome)
 	ON DELETE CASCADE ON UPDATE CASCADE
 
@@ -242,7 +242,7 @@ CREATE TABLE BUONO_SCONTO(
 	valido BOOLEAN NOT NULL,
 
 	
-	CHECK(sconto <= 1)
+	CHECK(sconto <= 1 and sconto > 0)
 
 );
 
