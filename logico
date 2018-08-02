@@ -1,0 +1,46 @@
+CASA_DISCOGRAFICA(nome, anno_fondazione)
+BAND(cod_band, nome, data_fondazione, nome_c)
+	FK: nome_c REFERENCES CASA_DISCOGRAFICA
+STUDIO_DI_REGISTRAZIONE(nome, via, cap, citta, num_civico, provincia)
+CD_MUSICALE(nome, cod_band, nome_studio, prezzo_cad, durata, num_brani, costo_reg, citta)
+	FK: cod_band REFERENCES BAND
+	FK: nome_studio, citta REFERENCES STUDIO_DI_REGISTRAZIONE NOT NULL
+GENERE_MUSICALE(nome, popolarità)
+ADESIONE(nome, cod_band, nome_cd)
+	FK: nome_cd, cod_band REFERENCES CD_MUSICALE
+	FK: nome REFERENCES GENERE_MUSICALE 
+MAGAZZINO(cod_m, via, cap, citta, num_civico, provincia)
+DIRIGENTE(cf, nome, cognome, costo_orario, telefono,  via, cap, citta, num_civico, provincia, anzianità)
+FILIALE(cod_f, costo_personale, telefono,  via, cap, citta, num_civico, provincia, cod_m)
+	FK: cod_m REFERENCES MAGAZZINO NOT NULL
+DIRIGE(cod_f, cf_dir)
+	FK: cod_f REFERENCES FILIALE
+	FK: cf_dir REFERENCES DIRIGENTE
+	AK: cf_dir
+DIPENDENTE(cf, nome, cognome, costo_orario, telefono,  via, cap, citta, num_civico, provincia, cod_f)
+	FK: cod_f REFERENCES FILIALE NOT NULL 
+
+RIFORNIMENTO(cod_fornitore, cod_rifornisce)
+	FK: cod_fornitore REFERENCES FILIALE
+	FK: cod_rifornisce REFERENCES FILIALE
+EVENTO(nome, data, località, cod_f)
+	FK: cod_f REFERENCES FILIALE NOT NULL
+ESPOSIZIONE(nome_cd, cod_band, cod_f, quantita)
+	FK: nome_cd, cod_band REFERENCES CD_MUSICALE
+	FK: cod_f REFERENCES FILIALE
+CLIENTE(cf, nome, cognome, telefono, spesa_totale)
+PRESTITO(data, cf, nome_cd, cod_band, costo, cod_f)
+	FK: cf REFERENCES CLIENTE
+	FK: nome_cd, cod_band REFERENCES CD_MUSICALE
+	FK: cod_f REFERENCES FILIALE NOT NULL
+BUONO_SCONTO(cod_b, sconto, valido)
+CARRELLO(num, cf, data, importo_totale, cod_f)
+	FK: cf REFERENCES CLIENTE
+	FK: cod_f REFERENCES FILIALE NOT NULL
+FA_PARTE(num, cf, nome_cd, cod_band, qta_copie)
+	FK: num, cf REFERENCES CARRELLO
+	FK: nome_cd, cod_band REFERENCES CD_MUSICALE
+SOGGETTO(cod_b, num, cf)
+	FK: num, cf REFERENCES CARRELLO
+	FK: cod_b REFERENCES BUONO_SCONTO
+	AK: num, cf
